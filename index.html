@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link href="../css/style.css" rel="stylesheet" />
+  <link href="./front/css/style.css" rel="stylesheet" />
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,9 +22,9 @@
     <div class="limitedWidthBlockContainer informations">
       <div class="limitedWidthBlock">
         <ul>
-          <li><img src="../images/icons/phone.svg" alt="phone icon" class="informations__phone">01 23 45 67 89</li>
-          <li><img src="../images/icons/mail.svg" alt="mail icon" class="informations__mail">support@name.com</li>
-          <li><img src="../images/icons/adress.svg" alt="geolocation icon" class="informations__address">01 23 45 67 89
+          <li><img src="./front/images/icons/phone.svg" alt="phone icon" class="informations__phone">01 23 45 67 89</li>
+          <li><img src="./front/images/icons/mail.svg" alt="mail icon" class="informations__mail">support@name.com</li>
+          <li><img src="./front/images/icons/" alt="geolocation icon" class="informations__address">01 23 45 67 89
           </li>
         </ul>
       </div>
@@ -32,21 +32,21 @@
     <div class="limitedWidthBlockContainer menu">
       <div class="limitedWidthBlock">
         <a href="./index.html">
-          <img class="logo" src="../images/logo.png" alt="Kanap company logo">
+          <img class="logo" src="./front/images/logo.png" alt="Kanap company logo">
         </a>
         <nav>
           <ul>
             <a href="./index.html">
               <li>Home</li>
             </a>
-            <a href="./cart.html">
+            <a href="./front/html/cart.html">
               <li>Cart</li>
             </a>
           </ul>
         </nav>
       </div>
     </div>
-    <img class="banner" src="../images/banner.png" alt="Banner">
+    <img class="banner" src="./front/images/banner.png" alt="Banner">
   </header>
 
   <main class="limitedWidthBlockContainer">
@@ -120,7 +120,7 @@
     <div class="limitedWidthBlockContainer footerMain">
       <div class="limitedWidthBlock">
         <div>
-          <img class="logo" src="../images/logo.png" alt="Kanap company logo">
+          <img class="logo" src="./front/images/logo.png" alt="Kanap company logo">
         </div>
         <div>
           <p>10 quai de la charente <br>75019 Paris 19</p>
@@ -139,43 +139,9 @@
       </div>
     </div>
   </footer>
-  <script src="../js/script.js" type="module"></script>
-  <script src="/front/main.js"></script>
-  <script src="/back/models/Product.js"></script>
-  <script src="/back/controllers/product.js"></script>
+  <script src="./front/main.js"></script>
+  <script src="./back/models/Product.js"></script>
+  <script src="./back/controllers/product.js"></script>
 
-  <script>
-    
-
-    function loadProduct(id) {
-      fetch(url + "/" + id).then(data => {
-        data.json().then(product => {
-
-          console.log(product)
-        });
-      }
-      ).catch(error => console.log("error loading the products"))
-    }
-
-    function sendOrder(){
-      const obj={
-  "contact":{
-    "firstName":"francesco",
-    "lastName":"asdasd",
-    "address":"asdads",
-    "city":"asdsa",
-    "email":"assda"
-  },
-  "products":[]
-}
-      fetch(url+ "/order",{
-          headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-        method:"post",body:JSON.stringify(obj)})
-    }
-  </script>
-</body>
 
 </html>
