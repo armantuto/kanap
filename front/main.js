@@ -6,7 +6,7 @@ function loadProducts() {
       const productList = document.getElementById("items");
       products.forEach(product => {
         const productElement = document.createElement("a");
-        productElement.href = "product.html?id=" + product._id
+        productElement.href = "./front/html/product.html?id=" + product._id
         productElement.innerHTML = `
                     <article> <img src='${product.imageUrl}' alt='${product.altTxt}'>
                     <h3 class="productName">${product.name}</h3>
