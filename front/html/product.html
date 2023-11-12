@@ -64,8 +64,8 @@
               <div class="item__content__settings">
                 <div class="item__content__settings__color">
                   <label for="color-select">Chose your color:</label>
-                  <select name="color-select" id="colors">
-                      <option aria-required="true" class="colorOp" >--Please, select a color --</option>
+                  <select name="color-select" id="colors" aria-placeholder="Select a color">
+                      <option aria-required="true" class="colorOp" value="" >--Please, select a color --</option>
 <!--                       <option value="vert">green</option>
                       <option value="blanc">white</option> -->
                   </select>
@@ -73,7 +73,7 @@
 
                 <div class="item__content__settings__quantity">
                   <label for="itemQuantity">Number of articles (1-100):</label>
-                  <input type="number" name="itemQuantity" min="1" max="100" value="" id="quantity">
+                  <input type="number" name="itemQuantity" min="1" max="100" value="1" id="quantity" required>
                 </div>
               </div>
 

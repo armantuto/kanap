@@ -1,7 +1,12 @@
+//FDB Cambiar nombre della funcion
 
-function pruebas(productIds, value) {
+function pruebas(id,color, value) {
+    console.log(id,color)
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    var index = cart.findIndex(x => x.uniqueId == productIds)
+    //var index = cart.findIndex(x => x.uniqueId == productIds)
+    var index = cart.findIndex(
+      (cart_product) => cart_product.id === id && cart_product.color === color 
+    );
     cart[index].quantity = value;
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(index);
@@ -33,7 +38,7 @@ function loadProductsInCart() {
                     <div class="cart__item__content__settings">
                       <div class="cart__item__content__settings__quantity">
                         <p>Quantity :  </p> 
-                        <input type="number" class="itemQuantity" name="itemQuantity" onChange="pruebas('${product.uniqueId}',this.value)" min="1" max="100" value="${product.quantity}">
+                        <input type="number" class="itemQuantity" name="itemQuantity" onChange="pruebas('${product.id}','${product.color}',this.value)" min="1" max="100" value="${product.quantity}">
                       </div>
                       <div><br>
                       <p>Total:  ${total} €</p>
@@ -61,16 +66,16 @@ function loadProductsInCart() {
   
         // Guardar el carrito actualizado en el LocalStorage
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+        
   
         // Vuelve a cargar los productos en el carrito
         loadProductsInCart();
-     //   location.reload()
+        location.reload()
       });
     });
   }
   
-
-  async function sendOrderData(datx) {
+async function sendOrderData(datx) {
     try {
       const response = await fetch("http://127.0.0.1:3000/api/products/order", {
         headers: {
@@ -97,13 +102,14 @@ function loadProductsInCart() {
       throw error; // Puedes propagar el error para manejarlo en la parte que llama a esta función
     }
   }
+
   // Llama a esta función para cargar los productos en el carrito al cargar la página
-  loadProductsInCart();
+loadProductsInCart();
 
   
-  const subm = document.querySelector(".cart__order__form")
+const subm = document.querySelector(".cart__order__form")
 
-  subm.addEventListener("submit", async function(event) {
+subm.addEventListener("submit", async function(event) {
   event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const names = document.getElementById("firstName").value;

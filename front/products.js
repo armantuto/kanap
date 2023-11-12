@@ -35,13 +35,18 @@ async function addToCart(url) {
   
         // Extraer información del producto
         const { _id: id, name, price, imageUrl } = product;
-        const quantity = getQuantity();
+        const quantity_value = getQuantity();
         const color = getColor();
-        const uniqueId = generateUniqueId();
-  
+        const uniqueId = generateUniqueId(); //jahsdgjahsd, /qwe5q4we5qw7e8
+        const quantity=convertToInt(quantity_value);
+        console.log(quantity)
+        if(quantity <=0){
+          alert("Please select a quantity.");
+          return;
+        }
         // Validar la cantidad y el color seleccionados
-        if (!color || quantity <= 0) {
-          alert("Please select a color and add a quantity.");
+        if ((!color && color==="")) {
+          alert("Please select a color.");
           return;
         }
   
@@ -50,7 +55,7 @@ async function addToCart(url) {
   
         // Buscar el producto en el carrito
         const existingProduct = cart.find(
-          (product) => product.id === id && product.color !== color && product.uniqueId === uniqueId
+          (product) => product.id === id && product.color === color 
         );
   
         if (existingProduct) {
@@ -89,7 +94,13 @@ async function addToCart(url) {
     function updateLocalStorage(cart) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
+
+    function convertToInt(value){
+      const num=parseInt(value);
+      if(isNaN(num)) return 0;
+      return num;
+    }
   }
 
-  productsById(anotherApi +"/"+ productId);
+productsById(anotherApi +"/"+ productId);
 addToCart(anotherApi + "/" + productId)

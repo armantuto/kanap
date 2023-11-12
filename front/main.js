@@ -1,5 +1,7 @@
- export const api ="http://127.0.0.1:3000/api/products";
+export const api ="http://127.0.0.1:3000/api/products";
 
+//Funcion utilizada por varios componentes, puedes ponerlo en
+// otro file js che se llame "utils"
 export async function fetchData(url){
      try {
          const response = await fetch(url);
@@ -12,7 +14,6 @@ export async function fetchData(url){
      }
 }
 
-  
 
 async function loadProducts(url){
     const products = await fetchData(url);
