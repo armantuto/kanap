@@ -124,8 +124,6 @@ subm.addEventListener("submit", async function(event) {
  
     return; // No envía la solicitud al servidor si el carrito está vacío
     }
-  
-  
   cart.forEach(product => {
       idProc.push(product.id)
       
@@ -145,9 +143,7 @@ subm.addEventListener("submit", async function(event) {
       products: idProc
   };
 
-  
   const orderII = await sendOrderData(datos)
-  console.log(orderII)
   localStorage.clear()
   window.location.href = "confirmation.html?OrId=" + orderII
 
