@@ -1,18 +1,5 @@
-export const api ="http://127.0.0.1:3000/api/products";
-
-//Funcion utilizada por varios componentes, puedes ponerlo en
-// otro file js che se llame "utils"
-export async function fetchData(url){
-     try {
-         const response = await fetch(url);
-         if (!response.ok) {
-             throw new Error("error http");
-         }
-         return await response.json();
-     } catch (error) {
-         console.error("error", error);
-     }
-}
+import { fetchData } from "./utils.js";
+import { api as anotherApi } from "./utils.js";
 
 
 async function loadProducts(url){
@@ -29,7 +16,7 @@ async function loadProducts(url){
         productList.appendChild(productElement);
     });}
 
-loadProducts(api);
+loadProducts(anotherApi);
 
 
 

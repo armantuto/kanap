@@ -1,3 +1,6 @@
+import { fetchData } from "./utils.js";
+import { api as anotherApi } from "./utils.js";
+
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id") ;
 const detalleProducto = document.querySelector(".item__img");
@@ -6,8 +9,7 @@ const productPrice = document.querySelector("#price");
 const productDescription = document.querySelector("#description");
 const selectColor = document.querySelector('#colors');
 
-import { fetchData } from "./main.js";
-import { api as anotherApi } from "./main.js";
+
 
 async function productsById(url){
         const product = await fetchData(url);

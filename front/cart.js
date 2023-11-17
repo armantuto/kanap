@@ -1,6 +1,6 @@
-//FDB Cambiar nombre della funcion
 
-function pruebas(id,color, value) {
+
+function onChangeInput(id,color, value) {
     console.log(id,color)
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     //var index = cart.findIndex(x => x.uniqueId == productIds)
@@ -38,7 +38,7 @@ function loadProductsInCart() {
                     <div class="cart__item__content__settings">
                       <div class="cart__item__content__settings__quantity">
                         <p>Quantity :  </p> 
-                        <input type="number" class="itemQuantity" name="itemQuantity" onChange="pruebas('${product.id}','${product.color}',this.value)" min="1" max="100" value="${product.quantity}">
+                        <input type="number" class="itemQuantity" name="itemQuantity" onChange="onChangeInput('${product.id}','${product.color}',this.value)" min="1" max="100" value="${product.quantity}">
                       </div>
                       <div><br>
                       <p>Total:  ${total} €</p>
